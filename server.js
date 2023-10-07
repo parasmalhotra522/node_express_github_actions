@@ -14,12 +14,19 @@ app.get('/', function (req, res) {
     res.sendFile( __dirname + './index.html');
 })
 
+app.get('/home', function (req, res) {
+  res.sendFile( __dirname + './home.html');
+})
+
 //http://localhost:3000/profile
 app.post('/profile', (req, res) => {
   console.log(req.body)
   res.json(req.body)
+  
 })
-
+app.get('/name', (req, res) => {
+  res.sendFile(__dirname + "./index.html");
+})
 //http://localhost:3000/admin
 app.get('/admin', (req, res) => {
   res.send('Admin Homepage')
@@ -27,7 +34,7 @@ app.get('/admin', (req, res) => {
 
 //http://localhost:3000/user/100
 app.get("/user/:id", (req, res)=> {
-  console.log("User id here", req);
+  // console.log("User id here", req);
       res.send(`User ID: ${req.params.id}`);
      
     }
